@@ -1,12 +1,12 @@
-#bot.py
-#DISCORD BOT GRACEE, CURRENTLY STILL IN DEVELOPMENT
-#FEEL FREE TO REQUEST FOR FEATURES
+# bot.py
+# DISCORD BOT GRACEE, CURRENTLY STILL IN DEVELOPMENT
+# FEEL FREE TO REQUEST FOR FEATURES
+
 import os
 import random
 import requests
 import json
 import asyncio
-
 
 
 from dotenv import load_dotenv
@@ -24,39 +24,77 @@ intents.members = True
 intents.message_content = True
 bot = commands.Bot(command_prefix="$", case_insensitive=True, intents=intents)
 
+
 @bot.event
 async def on_ready():
-  print(f"Logged in as {bot.user}")
-  await bot.add_cog(music_cog(bot))
-  print("Music Cog Loaded")
+   print(f"Logged in as {bot.user}")
+   await bot.add_cog(music_cog(bot))
+   print("Music Cog Loaded")
 
 
 player1 = ""
 player2 = ""
 turn = ""
-apikey1 = ""#insert api key from Google
-greet= ["Nice to meet you!","How can i help you today?","can i help you with something?","and welcome!","and please enjoy your day!"]
-greet2=["Here is the link!","Let's join the class!","Let's get in the class!","Welcome to","let's learn something new together"]
-answers=['That is impossible.','Never have i ever think about it','Ask another question please:pray:','My sources say no.', 'Dont count on it.', 'cannot predict it now', 'Unfortunately no.','Yes.','It is fixed, fortunately','Undoubtedly yes!','It is decidedly so.','Most likely yes!','My sources told me yes.','Without a doubt!']
-moves= ['rock','newspaper','scissors']
-moves2 = ['rock','paper','scissors']
-rps1 =["rpc1.jpg","rpc3.jpg"]
+apikey1 = "" # insert api key from Google
+greet = [
+    "Nice to meet you!",
+    "How can i help you today?",
+    "can i help you with something?",
+    "and welcome!",
+    "and please enjoy your day!"
+]
+greet2 = [
+    "Here is the link!",
+    "Let's join the class!",
+    "Let's get in the class!",
+    "Welcome to",
+    "let's learn something new together"
+]
+answers = [
+    "That is impossible.",
+    "Never have i ever think about it",
+    "Ask another question please:pray:",
+    "My sources say no.", 
+    "Dont count on it.", 
+    "cannot predict it now", 
+    "Unfortunately no.",
+    "Yes.",
+    "It is fixed, fortunately",
+    "Undoubtedly yes!",
+    "It is decidedly so.",
+    "Most likely yes!",
+    "My sources told me yes.",
+    "Without a doubt!"
+]
+moves= ["rock","newspaper","scissors"]
+moves2 = ["rock","paper","scissors"]
+rps1 = ["rpc1.jpg","rpc3.jpg"]
 
 gameover = True
 history = False
 hangmangame = False
 board = []
 winning = [
-  [0,1,2],
-  [3,4,5],
-  [6,7,8],
-  [8,3,6],
-  [1,4,7],
-  [2,5,8],
-  [0,4,8],
-  [2,4,6]]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [8, 3, 6],
+    [1, 4 ,7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
 
-kebersamaan = ["all1.jpg","all2.jpg.jpeg","all3.jpg.jpeg","79950.jpg","image0.jpg","all4.jpg","all5.jpg","all6.jpg"]
+kebersamaan = [
+    "all1.jpg",
+    "all2.jpg.jpeg",
+    "all3.jpg.jpeg",
+    "79950.jpg",
+    "image0.jpg",
+    "all4.jpg",
+    "all5.jpg",
+    "all6.jpg"
+]
 
 reply = ["thx.jpg","thx2.jpg","thx3.jpg","thx4.jpg","thx5.jpg","thx7.jpg","thx8.jpg","thx6.jpeg"]
 weeb = ["himeno.jpg","himeno2.jpg","yotsuba.jpg","yotsuba2.jpg","yotsuba3.jpg","komi1.jpg"]
